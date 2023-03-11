@@ -22,7 +22,7 @@ TBR = SHEET.worksheet('TBR')
 READ = SHEET.worksheet('READ')
 
 
-records = tbr_data = TBR.get_all_values()
+records = TBR.get_all_values()
 table = Table(title="TBR List", box=box.MINIMAL_HEAVY_HEAD)
 
 for heading in records[0]:

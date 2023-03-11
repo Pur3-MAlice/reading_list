@@ -52,17 +52,42 @@ def add_book(which_list):
     print(f"Adding {title} by {author} on {CurrentDate}\n")
     worksheet_update = SHEET.worksheet(f'{which_list}')
     worksheet_update.append_row(book_input)
-    # prompt to add another or to go home
+    time.sleep(2)
+    list_choice(which_list)
 
 
 def list_book(which_list):
     """
-    docstring
+    fucntion to create table of entries to mimick the sheet 
+    in the command centre. Also return back to list_choice
+    after a pause. 
     """
-    # if TBR empty print "your reading list is empty"
     print(f"displaying {which_list}\n")
-    for book in which_list:
-        print(f"{book['title']}, by {book['author']}")
+    if which_list == "TBR":
+        records = TBR.get_all_values()
+        table = Table(
+            title="TBR List",
+            box=box.MINIMAL_HEAVY_HEAD,
+            show_lines=True,
+            header_style="dark_green")
+    elif which_list == "READ":
+        records = READ.get_all_values()
+        table = Table(
+            title="READ List",
+            box=box.MINIMAL_HEAVY_HEAD,
+            show_lines=True,
+            header_style="dark_green")
+
+    for heading in records[0]:
+        table.add_column(f"{heading}")
+
+    for row in records[1::1]:
+        table.add_row(*row)
+
+    console = Console()
+    console.print(table)
+    time.sleep(2)
+    list_choice(which_list)
 
 
 def list_choice(which_list):
@@ -158,6 +183,3 @@ def home():
 
 
 home()
-
-# # MAIN FUNCTION HERE THAT IS DEPLOYED AT END
-# # main()
