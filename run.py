@@ -50,6 +50,16 @@ def add_book(which_list):
     book_input.append(author)
     book_input.append(str(CurrentDate))
 
+    # NEED TO VALIDATE DATA HERE - CHECK IF THIS DATA IS
+    # ON EITHER TBR OR READ SHEET. IF ON TBR THEN PRINT
+    # 'this book is already on your TBR list.' Then depending on
+    # which list was intially called. 'Would you like to remove this
+    # entry from your TBR and add it to your READ list? Y or N?
+    # IF ON READ SHEET THEN PRINT
+    # 'this book is on your READ list. Please add a different Title'
+
+    # ALSO NEED TO CHECK FOR STRING! if the entry is int() /flt() = no
+
     print(f"Adding {title} by {author} on {CurrentDate}\n")
     worksheet_update = SHEET.worksheet(f'{which_list}')
     worksheet_update.append_row(book_input)
