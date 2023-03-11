@@ -39,7 +39,8 @@ read_data = READ.get_all_values()
 
 def add_book(which_list):
     """
-    docstring
+    Fucntion to add in book title and author to the
+    selected worksheet. Selected at the home() function
     """
     title = input("Title:").strip().title()
     author = input("Author:").strip().title()
@@ -58,9 +59,9 @@ def add_book(which_list):
 
 def list_book(which_list):
     """
-    fucntion to create table of entries to mimick the sheet 
+    fucntion to create table of entries to mimick the sheet
     in the command centre. Also return back to list_choice
-    after a pause. 
+    after a pause.
     """
     print(f"displaying {which_list}\n")
     if which_list == "TBR":
@@ -92,7 +93,7 @@ def list_book(which_list):
 
 def list_choice(which_list):
     """
-    This function helps the user check their lists and add to their lists
+    Function for user to check their list in table format
     It's focuses on being used for both the TBR & READ worksheets
     """
     prompt = f'''Welcome back to your reading list!
@@ -124,7 +125,8 @@ def list_choice(which_list):
 
 def about():
     """
-    docstring
+    Function called by user selction at home()
+    Tells user about the app and how to use.
     """
     print('''Your TBR (To Be Read) will store new titles input.
 Your Read List will compile all books finished.
@@ -151,7 +153,9 @@ Then you can interact with your TBR list''')
 
 def home():
     """
-    home page function
+    Function for the initalisation home() helps user
+    get through the code and is the backstop of thier
+    usage.
     """
     menu_prompt = '''Welcome back to your reading list!
     Press "T" to go to your TBR.
