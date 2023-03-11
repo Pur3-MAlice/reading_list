@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import os
+import datetime
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,48 +13,59 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('reading_list')
-TBR = SHEET.worksheet('tbr')
-READ = SHEET.worksheet('read')
+TBR = SHEET.worksheet('TBR')
+READ = SHEET.worksheet('READ')
 
 
 def cls():
-    '''
+    """
     function to clear the console for user using clear/cls command
-    '''
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+CurrentDate = datetime.date.today()
+
+
 tbr_data = TBR.get_all_values()
-# print(tbr_data)
+
 
 read_data = READ.get_all_values()
-# print(read_data)
 
 
 def add_book(which_list):
-    '''
+    """
     docstring
-    '''
+    """
     title = input("Title:").strip().title()
     author = input("Author:").strip().title()
-    print(f"Adding {title} written by {author}\n")
+
+    book_input = []
+    book_input.append(title)
+    book_input.append(author)
+    book_input.append(str(CurrentDate))
+
+    print(f"Adding {title} by {author} on {CurrentDate}\n")
+    worksheet_update = SHEET.worksheet(f'{which_list}')
+    worksheet_update.append_row(book_input)
+    # prompt to add another or to go home
 
 
 def list_book(which_list):
-    '''
+    """
     docstring
-    '''
+    """
     # if TBR empty print "your reading list is empty"
-    # print(f"displaying {list_name}\n")
-    # for book in reading_list:
-    # print(f"{book['title']}, by "{book['author']})
+    print(f"displaying {which_list}\n")
+    for book in which_list:
+        print(f"{book['title']}, by {book['author']}")
 
 
 def list_choice(which_list):
-    '''
+    """
     This function helps the user check their lists and add to their lists
     It's focuses on being used for both the TBR & READ worksheets
-    '''
+    """
     prompt = (f'''Welcome back to your reading list!
     Press "C" to Check your {which_list}.
     Press "A" to Add to your {which_list}.
@@ -82,9 +94,9 @@ def list_choice(which_list):
 
 
 def home():
-    '''
+    """
     home page function
-    '''
+    """
     menu_prompt = '''Welcome back to your reading list!
     Press "T" to go to your TBR.
     Press "R" to go to your Read list.
@@ -108,7 +120,7 @@ def home():
             print("Going to About Section...\n")
             break
         else:
-            print(f"'{selected_option}' is not valid option. Please try again")
+            print(f"'{selected_option}' is not valid option. try again")
             selected_option = input(menu_prompt).strip().lower()
         break
 

@@ -71,6 +71,8 @@ I have included details of testing both during development and post development 
 For this project to work, I required imported libraries: -
 ### ***os:***
   * Clear Screen?
+### ***Rich:***
+   * Rich is a Python library for rich text and beautiful formatting in the terminal. I used this primarily for printing tables.
 ### ***string:***
    * For Name?
 
