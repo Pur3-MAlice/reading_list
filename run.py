@@ -14,13 +14,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('reading_list')
 TBR = SHEET.worksheet('tbr')
 READ = SHEET.worksheet('read')
-MENU_PROMT = '''Welcome back to your reading list!
-Press "T" to go to your TBR.
-Press "R" to go to your Read list.
-Or press "B" to go to the About Section
-'''
-
-selected_option = input(MENU_PROMT).strip().lower()
 
 
 def cls():
@@ -30,65 +23,98 @@ def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-tbr_data = TBR.get_all_values()
-# print(tbr_data)
-
-read_data = READ.get_all_values()
-# print(read_data)
-
-
-def list_choice(which_list):
+def home():
     '''
-    This function helps the user check their lists and add to their lists
-    It's focuses on being used for both the TBR & READ worksheets
+    home page function
     '''
-    print(f'''Welcome back to your reading list!
-    Press "C" to Check your {which_list}.
-    Press "A" to Add to your {which_list}.
-    Or press "H" to go to Home''')
-    
-    # while selected_option != "":
-    #     print()
-
-
-def add_book(which_list):
+    menu_prompt = '''Welcome back to your reading list!
+    Press "T" to go to your TBR.
+    Press "R" to go to your Read list.
+    Or press "B" to go to the About Section
     '''
-    docstring
-    '''
-    title = input("Title:").strip().title()
-    author = input("Author:").strip().title()
-    print(f"Adding {title} written by {author}\n")
+    selected_option = input(menu_prompt).strip().lower()
+
+    while selected_option != "":
+        if selected_option == "t":
+            # cls()
+            print("Going to TBR list...\n")
+            # list_choice("TBR")
+            break
+        elif selected_option == "r":
+            # cls()
+            print("Going to READ list..\n")
+            # list_choice("READ")
+            break
+            break
+        elif selected_option == "b":
+            cls()
+            print("Going to About Section...\n")
+            break
+        else:
+            print(f"'{selected_option}' is not valid option. Please try again")
+            selected_option = input(menu_prompt).strip().lower()
+        break 
 
 
-def list_book():
-    '''
-    docstring
-    '''
-    # if TBR empty print "your reading list is empty"
-    # print(f"displaying {list_name}\n")
-    # for book in reading_list:
-    # print(f"{book['title']}, by "{book['author']})
+home()
 
 
-while selected_option != "":
-    if selected_option == "t":
-        cls()
-        print("Going to TBR list...\n")
-        list_choice("TBR")
-    elif selected_option == "r":
-        cls()
-        print("Going to READ list..\n")
-        list_choice("READ")
-        break
-    elif selected_option == "b":
-        cls()
-        print("Going to About Section...\n")
-        break
-    else:
-        print(f"'{selected_option}' is not valid option. Please try again")
+# tbr_data = TBR.get_all_values()
+# # print(tbr_data)
 
-    selected_option = input(MENU_PROMT).strip().lower()
+# read_data = READ.get_all_values()
+# # print(read_data)
 
 
-# MAIN FUNCTION HERE THAT IS DEPLOYED AT END
-# main()
+# def list_choice(which_list):
+#     '''
+#     This function helps the user check their lists and add to their lists
+#     It's focuses on being used for both the TBR & READ worksheets
+#     '''
+#     prompt = (f'''Welcome back to your reading list!
+#     Press "C" to Check your {which_list}.
+#     Press "A" to Add to your {which_list}.
+#     Or press "H" to go to Home''')
+
+#     user_choice = input(prompt).strip().lower()
+
+#     while user_choice != "":
+#         if user_choice == "c":
+#             cls()
+#             print(f"Here is you current {which_list} list \n")
+#             list_book(which_list)
+#         elif user_choice == "a":
+#             cls()
+#             print(f"Going to {which_list} book entry..\n")
+#             add_book(which_list)
+#         elif user_choice == "h":
+#             cls()
+#             print("Going to Home...\n")
+#             # call main funct?
+#             break
+#         else:
+#             print(f"'{selected_option}' is not valid option. Please try again")
+#             user_choice = input(prompt).strip().lower()
+#         break
+
+
+# def add_book(which_list):
+#     '''
+#     docstring
+#     '''
+#     title = input("Title:").strip().title()
+#     author = input("Author:").strip().title()
+#     print(f"Adding {title} written by {author}\n")
+
+
+# def list_book(which_list):
+#     '''
+#     docstring
+#     '''
+#     # if TBR empty print "your reading list is empty"
+#     # print(f"displaying {list_name}\n")
+#     # for book in reading_list:
+#     # print(f"{book['title']}, by "{book['author']})
+
+# # MAIN FUNCTION HERE THAT IS DEPLOYED AT END
+# # main()
