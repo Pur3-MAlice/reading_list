@@ -66,11 +66,11 @@ def list_choice(which_list):
     This function helps the user check their lists and add to their lists
     It's focuses on being used for both the TBR & READ worksheets
     """
-    prompt = (f'''Welcome back to your reading list!
+    prompt = f'''Welcome back to your reading list!
     Press "C" to Check your {which_list}.
     Press "A" to Add to your {which_list}.
     Or press "H" to go to Home
-    ''')
+    '''
 
     user_choice = input(prompt).strip().lower()
 
@@ -91,6 +91,21 @@ def list_choice(which_list):
             print(f"'{user_choice}' is not valid option. Please try again")
             user_choice = input(prompt).strip().lower()
         break
+
+
+def about():
+    """
+    docstring
+    """
+    print('''This YOUR a smart reading list!
+    Your TBR (To Be Read) will store new titles input.
+    Your Read List will compile all books finished.
+    If you want to get started with your reading list.
+    Just follow the instructions on the home menu.
+    For example: "Press "T" for TBR"
+    Type "T" and press Enter.
+    Then you can interact with your TBR list''')
+    home()
 
 
 def home():
@@ -118,6 +133,7 @@ def home():
         elif selected_option == "b":
             cls()
             print("Going to About Section...\n")
+            about()
             break
         else:
             print(f"'{selected_option}' is not valid option. try again")
