@@ -1,31 +1,88 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+ **Reading List**
 
-Welcome Pur3-MAlice,
+## **Overview**
+This program is  
+  
+[Click here to be taken to the final deployment of the project.]()
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![Screenshot of the welcome screen]()
 
-## Reminders
+## **Table of Contents** 
+* [**Reading List**](#reading-list)
+  * [**Overview**](#overview)
+  * [**Table of Contents**](#table-of-contents)
+  * [**How to Use:**](#how-to-use)
+* [**Planning Phase:**](#planning-phase)
+  * [***User Stories:***](#user-stories)
+  * [***Site Aims:***](#site-aims)
+  * [***How Will This Be Achieved:***](#how-will-this-be-achieved)
+  * [***Flow Chart:***](#flow-chart)
+* [**Features**](#features)
+  * [**Welcome Screen:**](#welcome-screen)
+  * [**Future-Enhancements**](#future-enhancements)
+* [**Data Model**](#data-model)
+* [**Testing Phase**](#testing-phase)
+* [**Libraries**](#libraries)
+* [**Deployment**](#deployment)
+* [**Credits**](#credits)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## **How to Use:**
 
-## Creating the Heroku app
+# **Planning Phase:**
+## ***User Stories:***
+As a user, I want to be able to:
+* 
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## ***Site Aims:***
+The site aims to:
+1.
+  
+## ***How Will This Be Achieved:***
+To achieve the above, the site will:
+1. Provide a welcome screen with the game name in ascii art.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## ***Flow Chart:***
+To understand the steps required in order to program the game, I created the below flowchart using [lucid charts](https://www.lucidchart.com/).  
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+![Logic Flowchart]() 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+# **Features**
+ 
+## **Welcome Screen:**
+From the welcome screen, the user has access to three things: -
+* How to Use.
+* Access Read List.
+* Access TBR List.  
+  
+![Welcome screen screenshot]()
 
-Connect your GitHub repository and deploy as normal.
+## **Future-Enhancements**
 
-## Constraints
+# **Data Model**
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## **Logic Flow:**
 
------
-Happy coding!
+### ***Setup Phase:***
+
+# **Testing Phase**
+I have included details of testing both during development and post development in a separate document.
+
+# **Libraries**
+For this project to work, I required imported libraries: -
+### ***os:***
+  * Clear Screen?
+### ***string:***
+   * For Name?
+
+# **Deployment**
+
+## ***Playing on a Local machine or via Gitpod Terminal:***
+
+## ***Final Deployment to Heroku:***  
+
+# **Credits**
+* The idea to decorate the board with numbers above and to the side came from [Knowledge Mavens youtube channel](https://youtu.be/alJH_c9t4zw)
+* Clear console function copied from [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
+* [lucid chart.com](https://www.lucidchart.com/) was used to create the flow chart
+* [Code Institute](https://codeinstitute.net/) for providing the template. [template](https://github.com/Code-Institute-Org/python-essentials-template) 
+* [ASCII Art text generator](http://www.network-science.de/ascii/) used for the welcome screen text.
