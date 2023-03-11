@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import os
 import datetime
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -97,15 +98,27 @@ def about():
     """
     docstring
     """
-    print('''This YOUR a smart reading list!
-    Your TBR (To Be Read) will store new titles input.
-    Your Read List will compile all books finished.
-    If you want to get started with your reading list.
-    Just follow the instructions on the home menu.
-    For example: "Press "T" for TBR"
-    Type "T" and press Enter.
-    Then you can interact with your TBR list''')
-    home()
+    print('''Your TBR (To Be Read) will store new titles input.
+Your Read List will compile all books finished.
+
+If you want to get started with your reading list.
+Just follow the instructions on the home menu.
+For example: Press "T" for TBR
+Type "T" and press Enter.
+Then you can interact with your TBR list''')
+    time.sleep(2)
+    home_prompt = "\nDo you want to go to the Home Screen?\nEnter: Y or N\n"
+    about_leave = input(home_prompt).strip().upper()
+    if about_leave == "Y":
+        cls()
+        home()
+    elif about_leave == "N":
+        cls()
+        print("You chose not to leave the about page")
+        about()
+    else:
+        print(f"'{about_leave}' is not valid option. try again")
+        about_leave = input(home_prompt).strip().upper()
 
 
 def home():

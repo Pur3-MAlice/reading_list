@@ -2,6 +2,7 @@ from rich.console import Console
 from rich.table import Table
 from rich import print
 
+
 table = Table(title="List")
 
 table.add_column("Date Added", style="cyan", no_wrap=True)
@@ -25,6 +26,11 @@ Just follow the instructions on the home menu.
 For example: Press "T" for TBR
 Type "T" and press Enter.
 Then you can interact with your TBR list''')
+
+
+print("Welcome to guru99 Python Tutorials")
+
+print("This message will be printed after a wait of 5 seconds")
 
 console = Console()
 console.print(table)
