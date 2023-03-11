@@ -3,6 +3,9 @@ from google.oauth2.service_account import Credentials
 import os
 import datetime
 import time
+from rich.console import Console
+from rich.table import Table
+from rich import box
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
