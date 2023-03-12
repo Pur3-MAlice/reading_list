@@ -6,6 +6,7 @@ from google.oauth2.service_account import Credentials
 from rich.console import Console
 from rich.table import Table
 from rich import box
+import pyfiglet
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -196,4 +197,14 @@ def home():
         break
 
 
+def banner():
+    """
+    Prints the ascii art as a banner.
+    Code from https://www.devdungeon.com
+    """
+    ascii_banner = pyfiglet.figlet_format("Reading List")
+    print(ascii_banner)
+
+
+banner()
 home()

@@ -87,4 +87,4 @@ For this project to work, I required imported libraries: -
 * Clear console function copied from [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
 * [lucid chart.com](https://www.lucidchart.com/) was used to create the flow chart
 * [Code Institute](https://codeinstitute.net/) for providing the template. [template](https://github.com/Code-Institute-Org/python-essentials-template) 
-* [ASCII Art text generator](http://www.network-science.de/ascii/) used for the welcome screen text.
+* [ASCII_ART] Used the code from this webpage to create my interface banner.(https://www.devdungeon.com/content/create-ascii-art-text-banners-python)
