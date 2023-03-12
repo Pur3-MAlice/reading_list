@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
+import numpy as np
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -18,11 +19,16 @@ READ = SHEET.worksheet('READ')
 
 tbr_data = TBR.get_all_values()
 
- 
-# creating dataframe
 df = pd.DataFrame(tbr_data, index=None)
- 
-# computing number of rows
-rows = len(df.axes[0])
 
-print("Number of Rows: ", rows)
+rows_tbr = len(df.axes[0]) - 1
+
+
+print("TBR:", rows_tbr)
+
+    
+
+
+print(df)
+df = df.drop_duplicates(subset=0)
+print(df)
