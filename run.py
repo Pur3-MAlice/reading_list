@@ -190,13 +190,11 @@ def home():
             print("Going to TBR list...\n")
             time.sleep(.5)
             list_choice("TBR")
-            
         elif selected_option == "r":
             cls()
             print("Going to READ list..\n")
             time.sleep(.5)
             list_choice("READ")
-            
         elif selected_option == "b":
             cls()
             print("Going to About Section...\n")

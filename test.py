@@ -26,9 +26,6 @@ rows_tbr = len(df.axes[0]) - 1
 
 print("TBR:", rows_tbr)
 
-    
-
-
 print(df)
 df = df.drop_duplicates(subset=0)
 print(df)
