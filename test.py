@@ -26,5 +26,4 @@ print("TBR:", rows_tbr)
 print(df)
 df = df.drop_duplicates(subset=0, keep='first', inplace=False)
 print(df)
-values = TBR.get_all_values()
-print(TBR.get('A2'))
+

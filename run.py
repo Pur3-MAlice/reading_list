@@ -59,18 +59,23 @@ def add_book(which_list):
     list_choice(which_list)
 
 
+turn titles into a list then check if user input is on the list?
+
 # def check_dupes():
 #     """
 #     Function to check the input against the sheets for
 #     dupelicates and give appropriate response. using mainly pandas
 #     """
-#     df_tbr = pd.DataFrame(tbr_data, index=None)
-#     rows_tbr = len(df_tbr.axes[0]) - 1
-#     print("TBR:", rows_tbr)
-  
-#     # df_read = pd.DataFrame(read_data, index=None)
-#     # rows_read = len(df_read.axes[0]) - 1
-#     # print("READ:", rows_read)
+# df = pd.DataFrame(tbr_data, index=None)
+
+# rows_tbr = len(df.axes[0]) - 1
+
+# print("TBR:", rows_tbr)
+
+# print(df)
+# df = df.drop_duplicates(subset=0, keep='first', inplace=False)
+# print(df)
+
 
 # check_dupes()
 
