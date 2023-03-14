@@ -1,7 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
-import numpy as np
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -16,16 +15,16 @@ SHEET = GSPREAD_CLIENT.open('reading_list')
 TBR = SHEET.worksheet('TBR')
 READ = SHEET.worksheet('READ')
 
-
 tbr_data = TBR.get_all_values()
 
 df = pd.DataFrame(tbr_data, index=None)
 
 rows_tbr = len(df.axes[0]) - 1
 
-
 print("TBR:", rows_tbr)
 
 print(df)
-df = df.drop_duplicates(subset=0)
+df = df.drop_duplicates(subset=0, keep='first', inplace=False)
 print(df)
+values = TBR.get_all_values()
+print(TBR.get('A2'))
