@@ -52,35 +52,27 @@ def add_book(which_list):
     book_input.append(str(author))
     book_input.append(str(CurrentDate))
 
-    
     df_tbr = pd.DataFrame(tbr_data)
     df_read = pd.DataFrame(read_data)
     tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
     read_title_list = df_read[df_read.columns[0]].values.tolist()
 
     if title in tbr_title_list:
-        print(f'''{title} is already on your TBR list.
-        Press Y to add this Title anyway, Press N to Cancel''')
-        add_dupe = input(prompt).strip().upper()
+        title_prompt = (f'''{title} is already on your TBR list.
+        Press Y to add this Title anyway, Press N to Cancel\n''')
+        add_dupe = input(title_prompt).strip().upper()
         if add_dupe == "Y":
             print(f"Adding {title} by {author} on {CurrentDate}\n")
             worksheet_update = SHEET.worksheet(f'{which_list}')
             worksheet_update.append_row(book_input)
-        elif add_dupe == "X":
+        elif add_dupe == "N":
             print("Please choose another XXX")
         else:
             print(f"'{add_dupe}' is not valid option. try again")
-        add_dupe = input(prompt).strip().upper()
+        add_dupe = input(title_prompt).strip().upper()
     elif title in read_title_list:
-        print(f'''{title} is already on your TBR list.
+        print(f'''{title} is already on your Read list.
         Press Y to add this Title anyway, Press N to Cancel''')
-
-
-    print(f"Adding {title} by {author} on {CurrentDate}\n")
-    worksheet_update = SHEET.worksheet(f'{which_list}')
-    worksheet_update.append_row(book_input)
-    time.sleep(2)
-    list_choice(which_list)    
 
 
 def list_book(which_list):
