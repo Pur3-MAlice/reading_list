@@ -52,32 +52,36 @@ def add_book(which_list):
     book_input.append(str(author))
     book_input.append(str(CurrentDate))
 
+    
+    df_tbr = pd.DataFrame(tbr_data)
+    df_read = pd.DataFrame(read_data)
+    tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
+    read_title_list = df_read[df_read.columns[0]].values.tolist()
+
+    if title in tbr_title_list:
+        print(f'''{title} is already on your TBR list.
+        Press Y to add this Title anyway, Press N to Cancel''')
+        add_dupe = input(prompt).strip().upper()
+        if add_dupe == "Y":
+            print(f"Adding {title} by {author} on {CurrentDate}\n")
+            worksheet_update = SHEET.worksheet(f'{which_list}')
+            worksheet_update.append_row(book_input)
+        elif add_dupe == "X":
+            print("Please choose another XXX")
+        else:
+            print(f"'{add_dupe}' is not valid option. try again")
+        add_dupe = input(prompt).strip().upper()
+    elif title in read_title_list:
+        print(f'''{title} is already on your TBR list.
+        Press Y to add this Title anyway, Press N to Cancel''')
+
+
     print(f"Adding {title} by {author} on {CurrentDate}\n")
     worksheet_update = SHEET.worksheet(f'{which_list}')
     worksheet_update.append_row(book_input)
     time.sleep(2)
-    list_choice(which_list)
+    list_choice(which_list)    
 
-
-turn titles into a list then check if user input is on the list?
-
-# def check_dupes():
-#     """
-#     Function to check the input against the sheets for
-#     dupelicates and give appropriate response. using mainly pandas
-#     """
-# df = pd.DataFrame(tbr_data, index=None)
-
-# rows_tbr = len(df.axes[0]) - 1
-
-# print("TBR:", rows_tbr)
-
-# print(df)
-# df = df.drop_duplicates(subset=0, keep='first', inplace=False)
-# print(df)
-
-
-# check_dupes()
 
 def list_book(which_list):
     """
@@ -185,7 +189,8 @@ def home():
     menu_prompt = '''Welcome back to your reading list!
     Press "T" to go to your TBR.
     Press "R" to go to your Read list.
-    Or press "B" to go to the About Section
+    Press "B" to go to the About Section.
+    Or Press "X" to cancel.
     '''
     selected_option = input(menu_prompt).strip().lower()
 
@@ -205,6 +210,10 @@ def home():
             print("Going to About Section...\n")
             time.sleep(.5)
             about()
+        elif selected_option == "x":
+            print("Canceling...\n")
+            time.sleep(.5)
+            break    
         else:
             print(f"'{selected_option}' is not valid option. try again")
         selected_option = input(menu_prompt).strip().lower()

@@ -16,17 +16,25 @@ TBR = SHEET.worksheet('TBR')
 READ = SHEET.worksheet('READ')
 
 tbr_data = TBR.get_all_values()
+read_data = READ.get_all_values()
 
-df = pd.DataFrame(tbr_data)
 
-rows_tbr = len(df.axes[0]) - 1
+title = input("Title:").strip().title()
 
-print("TBR:", rows_tbr)
+df_tbr = pd.DataFrame(tbr_data)
+df_read = pd.DataFrame(read_data)
+# df_tbr_col = df_tbr[df_tbr.columns[0]]
+# df_read_col = df_read[df_read.columns[0]]
+tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
+read_title_list = df_read[df_read.columns[0]].values.tolist()
 
-print(f"DataFrame:\n{df}\n")
+if title in tbr_title_list:
+    print(f'''{title} is already on your TBR list. 
+    Press Y to add this Title anyway, Press N to Cancel''')
+if title in read_title_list:
+    print(f'''{title} is already on your TBR list. 
+    Press Y to add this Title anyway, Press N to Cancel''')
 
-df2 = df[df.columns[0]]
-print(df2)
-
-title_list = df[df.columns[0]].values.tolist()
-print(title_list)
+# rows_tbr = len(df_tbr.axes[0]) - 1
+# print("TBR:", rows_tbr)
+# print(f"DataFrame:\n{df}\n") 
