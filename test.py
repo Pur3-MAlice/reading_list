@@ -17,13 +17,16 @@ READ = SHEET.worksheet('READ')
 
 tbr_data = TBR.get_all_values()
 
-df = pd.DataFrame(tbr_data, index=None)
+df = pd.DataFrame(tbr_data)
 
 rows_tbr = len(df.axes[0]) - 1
 
 print("TBR:", rows_tbr)
 
-print(df)
-df = df.drop_duplicates(subset=0, keep='first', inplace=False)
-print(df)
+print(f"DataFrame:\n{df}\n")
 
+df2 = df[df.columns[0]]
+print(df2)
+
+title_list = df[df.columns[0]].values.tolist()
+print(title_list)
