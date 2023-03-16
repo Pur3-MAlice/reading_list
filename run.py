@@ -58,18 +58,17 @@ def add_book(which_list):
     read_title_list = df_read[df_read.columns[0]].values.tolist()
 
     if title in tbr_title_list:
-        title_prompt = (f'''{title} is already on your TBR list.
-        Press Y to add this Title anyway, Press N to Cancel\n''')
+        title_prompt = f'''{title} is already on your TBR list.
+        Press Y to add this Title anyway, Press N to Cancel\n'''
         add_dupe = input(title_prompt).strip().upper()
         if add_dupe == "Y":
             print(f"Adding {title} by {author} on {CurrentDate}\n")
             worksheet_update = SHEET.worksheet(f'{which_list}')
             worksheet_update.append_row(book_input)
         elif add_dupe == "N":
-            print("Please choose another XXX")
+            print("Please choose another Title")
         else:
             print(f"'{add_dupe}' is not valid option. try again")
-        add_dupe = input(title_prompt).strip().upper()
     elif title in read_title_list:
         print(f'''{title} is already on your Read list.
         Press Y to add this Title anyway, Press N to Cancel''')
