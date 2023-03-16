@@ -30,12 +30,8 @@ def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-CurrentDate = datetime.date.today()
-
-
+current_date = datetime.date.today()
 tbr_data = TBR.get_all_values()
-
-
 read_data = READ.get_all_values()
 
 
@@ -50,7 +46,7 @@ def add_book(which_list):
     book_input = []
     book_input.append(str(title))
     book_input.append(str(author))
-    book_input.append(str(CurrentDate))
+    book_input.append(str(current_date))
 
     df_tbr = pd.DataFrame(tbr_data)
     df_read = pd.DataFrame(read_data)
@@ -62,16 +58,20 @@ def add_book(which_list):
         Press Y to add this Title anyway, Press N to Cancel\n'''
         add_dupe = input(title_prompt).strip().upper()
         if add_dupe == "Y":
-            print(f"Adding {title} by {author} on {CurrentDate}\n")
+            print(f"Adding {title} by {author} on {current_date}\n")
             worksheet_update = SHEET.worksheet(f'{which_list}')
             worksheet_update.append_row(book_input)
         elif add_dupe == "N":
             print("Please choose another Title")
+        elif title in read_title_list:
+            print(f'''{title} is already on your Read list.
+            Press Y to add this Title anyway, Press N to Cancel''')
         else:
             print(f"'{add_dupe}' is not valid option. try again")
-    elif title in read_title_list:
-        print(f'''{title} is already on your Read list.
-        Press Y to add this Title anyway, Press N to Cancel''')
+    else:
+        print(f"Adding {title} by {author} on {current_date}\n")
+        worksheet_update = SHEET.worksheet(f'{which_list}')
+        worksheet_update.append_row(book_input)
 
 
 def list_book(which_list):
@@ -97,7 +97,6 @@ def list_book(which_list):
             header_style="dark_green")
     else:
         print("Oh no! Somthing went wrong. Please try again.")
-        home()
 
     for heading in records[0]:
         table.add_column(f"{heading}")
@@ -108,7 +107,6 @@ def list_book(which_list):
     console = Console()
     console.print(table)
     time.sleep(2)
-    list_choice(which_list)
 
 
 def list_choice(which_list):
@@ -137,10 +135,8 @@ def list_choice(which_list):
             cls()
             print("Going to Home...\n")
             time.sleep(.5)
-            home()
         else:
             print(f"'{user_choice}' is not valid option. Please try again")
-            user_choice = input(prompt).strip().lower()
         break
 
 
@@ -168,7 +164,6 @@ Then you can interact with your TBR list''')
         about()
     else:
         print(f"'{about_leave}' is not valid option. try again")
-        about_leave = input(home_prompt).strip().upper()
 
 
 def home():
