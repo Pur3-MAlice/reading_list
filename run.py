@@ -9,6 +9,7 @@ from rich import box
 import pyfiglet
 import pandas as pd
 import random
+import string
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -44,12 +45,13 @@ def add_book(which_list):
     title = input("Title:").strip().title()
     author = input("Author:").strip().title()
     random_num = random.randint(1, 100)
+    random_letter = random.choice(string.ascii_letters)
 
     book_input = []
     book_input.append(str(title))
     book_input.append(str(author))
     book_input.append(str(current_date))
-    book_input.append(str(random_num))
+    book_input.append(str(random_num) + str(random_letter))
 
     df_tbr = pd.DataFrame(tbr_data)
     df_read = pd.DataFrame(read_data)
