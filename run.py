@@ -8,6 +8,7 @@ from rich.table import Table
 from rich import box
 import pyfiglet
 import pandas as pd
+import random
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -42,11 +43,13 @@ def add_book(which_list):
     """
     title = input("Title:").strip().title()
     author = input("Author:").strip().title()
+    random_num = random.randint(1, 100)
 
     book_input = []
     book_input.append(str(title))
     book_input.append(str(author))
     book_input.append(str(current_date))
+    book_input.append(str(random_num))
 
     df_tbr = pd.DataFrame(tbr_data)
     df_read = pd.DataFrame(read_data)
