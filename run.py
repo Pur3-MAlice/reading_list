@@ -62,26 +62,29 @@ def add_book(which_list):
     tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
     read_title_list = df_read[df_read.columns[0]].values.tolist()
 
-    if title in tbr_title_list:
-        title_prompt = f'''{title} is already on your TBR list.
-        Press Y to add this Title anyway, Press N to Cancel\n'''
-        add_dupe = input(title_prompt).strip().upper()
-        if add_dupe == "Y":
+    if len(title) < 1 or len(author) < 1:
+        print("The Title and Author must contain atleast 1 character")
+    else:
+        if title in tbr_title_list:
+            title_prompt = f'''{title} is already on your TBR list.
+            Press Y to add this Title anyway, Press N to Cancel\n'''
+            add_dupe = input(title_prompt).strip().upper()
+            if add_dupe == "Y":
+                print(f"Adding {title} by {author} on {current_date}\n")
+                worksheet_update = SHEET.worksheet(f'{which_list}')
+                worksheet_update.append_row(book_input)
+            elif add_dupe == "N":
+                print("Please choose another Title")
+            elif title in read_title_list:
+                print(f'''{title} is already on your Read list.
+                Press Y to add this Title anyway, Press N to Cancel''')
+            else:
+                print(f"'{add_dupe}' is not valid option. try again")
+                add_book(which_list)
+        else:
             print(f"Adding {title} by {author} on {current_date}\n")
             worksheet_update = SHEET.worksheet(f'{which_list}')
             worksheet_update.append_row(book_input)
-        elif add_dupe == "N":
-            print("Please choose another Title")
-        elif title in read_title_list:
-            print(f'''{title} is already on your Read list.
-            Press Y to add this Title anyway, Press N to Cancel''')
-        else:
-            print(f"'{add_dupe}' is not valid option. try again")
-            add_book(which_list)
-    else:
-        print(f"Adding {title} by {author} on {current_date}\n")
-        worksheet_update = SHEET.worksheet(f'{which_list}')
-        worksheet_update.append_row(book_input)
 
 
 def list_book(which_list):
@@ -187,11 +190,11 @@ def home():
     Press "T" to go to your TBR.
     Press "R" to go to your Read list.
     Press "B" to go to the About Section.
-    Or Press "X" or Space to cancel.
+    Or Press "X" to cancel.
     '''
     selected_option = input(menu_prompt).strip().lower()
 
-    while selected_option != "":
+    while selected_option != " ":
         if selected_option == "t":
             cls()
             print("Going to TBR list...\n")
@@ -207,7 +210,7 @@ def home():
             print("Going to About Section...\n")
             time.sleep(.5)
             about()
-        elif selected_option == "x" or " ":
+        elif selected_option == "x":
             print("Canceling...\n")
             time.sleep(.5)
             break

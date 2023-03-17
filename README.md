@@ -2,8 +2,6 @@
 
 ## **Overview**
 This program is a smart reading list that automatically updates a google spreadsheet with the user input from the app.
-
-For this program I focused on function based programming.
   
 [Click here to be taken to the final deployment of the project.]()
 
@@ -63,38 +61,47 @@ To understand the steps required in order to program the game, I created the bel
 ![Logic Flowchart](/documents/reading_list_flowchart.jpg) 
 
 # **Features**
- Home page
-    ![Home Page](/documents/home_screen.jpg)
-
- Home page cancel
-    ![Home Page Cancel](/documents/home_screen_cancel.jpg)
-
  About Page
-    ![About Page](/documents/about.jpg)
+
+  ![About Page](/documents/about.jpg)
 
  TBR and READ page (idenitcal) - check or add choice
-    ![TBR list](/documents/tbr_list.jpg)
+
+  ![TBR list](/documents/tbr_list.jpg)
 
  Check list
-    ![Check list](/documents/terminal_table.jpg)
+
+  ![Check list](/documents/terminal_table.jpg)
 
  Book input
-    ![Book input](/documents/add_book.jpg)
+
+  ![Book input](/documents/add_book.jpg)
 
  Duplicate catch
-    ![Dupe catch](/documents/dupecheck.jpg)
-    ![Dupe catch, no](/documents/dupecheck_no.jpg)
-    ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
-    
+
+  ![Dupe catch](/documents/dupecheck.jpg)
+
+Dupelicate catch then choose not to add
+
+  ![Dupe catch, no](/documents/dupecheck_no.jpg)
+
+Dupelicate catch then add anyway
+
+  ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
+
  Sheet update with the number gen
-    ![Sheet Update](/documents/update_sheet.jpg)
+ 
+  ![Sheet Update](/documents/update_sheet.jpg)
 
 ## **Home page:**
 From the Home page, the user has access to three things: -
 * About Page / How to use
 * Access Read List.
 * Access TBR List.  
-![Welcome screen screenshot]()
+* Cancel the program
+
+![Home Page](/documents/home_screen.jpg)
+![Home Page Cancel](/documents/home_screen_cancel.jpg)
 
 ## **Future-Enhancements**
 * To make this application better in the fututre these are the things I would include:
@@ -104,8 +111,10 @@ From the Home page, the user has access to three things: -
   1. Add due date for TBR entries to ensure there's a timeline for the user to read books. This could be used for students.
 
 # **Data Model**
-
 ## **Logic Flow:**
+The home function is called at the end of the run.py file, just after the banner call. The welcome screen is now loaded and has ascii art and the user selection home page. The user can read the about, the rules, got to their TBR, or go to their READ list. They also have the option to cancel the program and leave. Entering the approriate letter will take them to that area.
+
+Once the user enters "X" to go to the list, the set user's list is passed to each function moving forward to ensure that the correct sheet is being edited by the user. As part of the error handling for the input, the user cannot enter any other letters or numbers without being passed an error message.
 
 ### ***Setup Phase:***
 
@@ -119,17 +128,15 @@ For this project to work, I required imported libraries: -
 ### ***rich:***
    * Rich is a Python library for rich text and beautiful formatting in the terminal. I used this primarily for printing tables for a better UX. This was used with console, table and box.
 ### ***datetime:***
-   * datetime was used to get the exact date of the user input and append it to the google sheet.
+   * Datetime was used to get the exact date of the user input and append it to the google sheet.
 ### ***time:***
-   * time was used for the screen delays. I input some screen delays so the user wasn't bombared with infomation and could easily digest when change in the terminal happened.
-### ***datetime:***
-   * datetime was used to get the exact date of the user input and append it to the google sheet.
+   * Time was used for the screen delays. I input some screen delays so the user wasn't bombared with infomation and could easily digest when change in the terminal happened.
 ### ***pyfiglet:***
-   * pyfiglet was used for the homescreen ascii art.
+   * Pyfiglet was used for the homescreen ascii art.
 ### ***pandas:***
-   * pandas was used to create dataframes that made working with the data of the spreadsheet easier and more managable.
+   * Pandas was used to create dataframes that made working with the data of the spreadsheet easier and more managable.
 ### ***random: / string:***
-   * used to create random number (1, 100) and random letter concat to give the book input a unique code.
+   * Random used to create random number (1, 100) and random letter concat to give the book input a unique code.
 
 # **Deployment**
 ## ***Final Deployment to Heroku:***  
