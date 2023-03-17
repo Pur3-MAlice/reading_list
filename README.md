@@ -31,7 +31,7 @@ For this program I focused on function based programming.
 ## **How to Use:**
 * Once deploying the program. The user can enter 'X' letters do navigate through the terminal to different areas of the program. This is done to check their READ list, TBR list and also to add book inputs to both.
 * The user can also stop the program entirely from the home page, which can either be naved back to or the user will automatically be dropped back to after inputs.
-* 
+* Input book title and then author name when on the add pages for TBR and READ.
 
 # **Planning Phase:**
 ## ***User Stories:***
@@ -64,13 +64,21 @@ To understand the steps required in order to program the game, I created the bel
 
 # **Features**
  * Home page
+ ![Logic Flowchart]()
  * About Page
+ ![Logic Flowchart]()
  * TBR and READ page (idenitcal) - check or add
- * check list
+ ![Logic Flowchart]()
+ * Check list
+ ![Check list](/documents/tbr_list.jpg)
  * Book input
- * Dupe catch
- * Automatic number gen
- * sheet update
+ ![Book input](/documents/add_book.jpg)
+ * Duplicate catch
+ ![Dupe catch](/documents/dupecheck.jpg)
+ ![Dupe catch, no](/documents/dupecheck_no.jpg)
+ ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
+ * Sheet update with the number gen
+ ![Sheet Update](/documents/update_sheet.jpg)
 
 ## **Home page:**
 From the Home page, the user has access to three things: -
@@ -84,7 +92,7 @@ From the Home page, the user has access to three things: -
   1. The ability to remove books after checking the list of choice.
   1. The ability to add in mutliple books at once.
   1. The option to add in list of books from sources such a bestseller lists.
-  1. Add due date for TBR entries.
+  1. Add due date for TBR entries to ensure there's a timeline for the user to read books. This could be used for students.
 
 # **Data Model**
 
@@ -99,7 +107,7 @@ Below is the tesing done for this page. It is in the format, action, expected ou
 For this project to work, I required imported libraries: -
 ### ***os:***
   * Clear Screen. This was used to keep the terminal clean for a better user experince.
-### ***Rich:***
+### ***rich:***
    * Rich is a Python library for rich text and beautiful formatting in the terminal. I used this primarily for printing tables for a better UX. This was used with console, table and box.
 ### ***datetime:***
    * datetime was used to get the exact date of the user input and append it to the google sheet.
