@@ -18,7 +18,6 @@ This program is a smart reading list that automatically updates a google spreads
   * [***How Will This Be Achieved:***](#how-will-this-be-achieved)
   * [***Flow Chart:***](#flow-chart)
 * [**Features**](#features)
-  * [**Welcome Screen:**](#welcome-screen)
   * [**Future-Enhancements**](#future-enhancements)
 * [**Data Model**](#data-model)
 * [**Testing Phase**](#testing-phase)
@@ -109,17 +108,14 @@ From the Home page, the user has access to three things: -
   1. The ability to add in mutliple books at once.
   1. The option to add in list of books from sources such a bestseller lists.
   1. Add due date for TBR entries to ensure there's a timeline for the user to read books. This could be used for students.
+  1. Be able to delete Rows based on Unique ID, title or author.
+  1. Be able to move rows from one sheet to the other.
 
 # **Data Model**
 ## **Logic Flow:**
 The home function is called at the end of the run.py file, just after the banner call. The welcome screen is now loaded and has ascii art and the user selection home page. The user can read the about, the rules, got to their TBR, or go to their READ list. They also have the option to cancel the program and leave. Entering the approriate letter will take them to that area.
 
 Once the user enters "X" to go to the list, the set user's list is passed to each function moving forward to ensure that the correct sheet is being edited by the user. As part of the error handling for the input, the user cannot enter any other letters or numbers without being passed an error message.
-
-### ***Setup Phase:***
-
-# **Testing Phase**
-Below is the tesing done for this page. It is in the format, action, expected outcome and then outcome. This was done after all inital fixes, but I will also indicate where I found errors that were later on fixed.
 
 # **Libraries**
 For this project to work, I required imported libraries: -
@@ -137,6 +133,31 @@ For this project to work, I required imported libraries: -
    * Pandas was used to create dataframes that made working with the data of the spreadsheet easier and more managable.
 ### ***random: / string:***
    * Random used to create random number (1, 100) and random letter concat to give the book input a unique code.
+
+## **During Development Testing**
+### ***Manual Testing:***
+During the development process, I was manually testing in the following ways:-
+* Manually testing each user input for errors via the console in gitpod.
+    * Detailed below is the method in which I tested the app to make sure that it did what was intended. This test was focused on any unxpected outcomes.
+      1.
+        
+* Asked a Data Scientist friend to review the app by following the above procedure often throughout the development of the game. They did not offer any help on the coding nor did they provide feedback other than "XXX" is doesn't work as expected. They did however make a good soundboard for me to talk at while talking through difficult code issues.
+
+### ***Bugs and Fixes:***
+Below is a list of bugs I found during the development process. A lot of the bugs and fixes where minor enough that they were caught and easily amended by just seeing the redlines in gitpod. But here are a few that stumped me enough to write them down.
+1. **Intended Outcome** - For the Nav button to show up in the top right of the screen and dropdown to show the other links to pages,
+    * ***Issue Found:*** 
+        * 
+    * ***Solution Used:*** 
+        * 
+
+## **Post Development Testing**
+### **Validators**
+#### ***PEP8*** -   
+* ***Issue Found:***
+    * 
+* ***Solution Used:***
+    * 
 
 # **Deployment**
 ## ***Final Deployment to Heroku:***  
@@ -162,7 +183,9 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
    * Clicking either "Enable Automatic Deploys" for automatic deployment when you push updates to Github. Which is what I chose to test after deployment.
    * Select the correct branch for deployment from the drop-down menu and click the "Deploy Branch" button for manual deployment.
 
-
+### **References**
+* Whilst I did try to deviate as much as possible, this project was influenced by the code project love sandwiches which I built before starting this project.
+* I did rely on Stack Overflow, W3schools, openpyxl and MDN web docs for general references and problem solving throughout the project.
 # **Credits**
 * The idea to decorate the board with numbers above and to the side came from [Knowledge Mavens youtube channel](https://youtu.be/alJH_c9t4zw)
 * Clear console function copied from [delftstack.com](https://www.delftstack.com/howto/python/python-clear-console/)
