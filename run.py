@@ -11,12 +11,15 @@ import pandas as pd
 import random
 import string
 
+
+# This code is taken from the code insitute love sandwiches code
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
 
+# Some of the below code is taken from the code institute's love sandwiches
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -28,11 +31,12 @@ READ = SHEET.worksheet('READ')
 def cls():
     """
     function to clear the console for user using clear/cls command
+    this code was taken from import os
     """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-current_date = datetime.date.today()
+current_date = datetime.date.today()  # from datetime
 tbr_data = TBR.get_all_values()
 read_data = READ.get_all_values()
 
@@ -44,8 +48,8 @@ def add_book(which_list):
     """
     title = input("Title:").strip().title()
     author = input("Author:").strip().title()
-    random_num = random.randint(1, 100)
-    random_letter = random.choice(string.ascii_letters)
+    random_num = random.randint(1, 100)  # from random
+    random_letter = random.choice(string.ascii_letters)  # from string
 
     book_input = []
     book_input.append(str(title))
@@ -53,8 +57,8 @@ def add_book(which_list):
     book_input.append(str(current_date))
     book_input.append(str(random_num) + str(random_letter))
 
-    df_tbr = pd.DataFrame(tbr_data)
-    df_read = pd.DataFrame(read_data)
+    df_tbr = pd.DataFrame(tbr_data)  # dataframe from pandas
+    df_read = pd.DataFrame(read_data) 
     tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
     read_title_list = df_read[df_read.columns[0]].values.tolist()
 
@@ -73,6 +77,7 @@ def add_book(which_list):
             Press Y to add this Title anyway, Press N to Cancel''')
         else:
             print(f"'{add_dupe}' is not valid option. try again")
+            add_book(which_list)
     else:
         print(f"Adding {title} by {author} on {current_date}\n")
         worksheet_update = SHEET.worksheet(f'{which_list}')
@@ -88,7 +93,7 @@ def list_book(which_list):
     print(f"displaying {which_list}\n")
     if which_list == "TBR":
         records = TBR.get_all_values()
-        table = Table(
+        table = Table(  # Table code inspired by example code from rich
             title="TBR List",
             box=box.MINIMAL_HEAVY_HEAD,
             show_lines=True,
@@ -111,7 +116,7 @@ def list_book(which_list):
 
     console = Console()
     console.print(table)
-    time.sleep(2)
+    time.sleep(2)  # all time.sleep events are taken from time
 
 
 def list_choice(which_list):
@@ -127,7 +132,7 @@ def list_choice(which_list):
 
     user_choice = input(prompt).strip().lower()
 
-    while user_choice != "":
+    while user_choice != " ":
         if user_choice == "c":
             cls()
             print(f"Here is you current {which_list} list \n")
@@ -142,6 +147,7 @@ def list_choice(which_list):
             time.sleep(.5)
         else:
             print(f"'{user_choice}' is not valid option. Please try again")
+            list_choice(which_list)
         break
 
 
@@ -181,7 +187,7 @@ def home():
     Press "T" to go to your TBR.
     Press "R" to go to your Read list.
     Press "B" to go to the About Section.
-    Or Press "X" to cancel.
+    Or Press "X" or Space to cancel.
     '''
     selected_option = input(menu_prompt).strip().lower()
 
@@ -201,10 +207,10 @@ def home():
             print("Going to About Section...\n")
             time.sleep(.5)
             about()
-        elif selected_option == "x":
+        elif selected_option == "x" or " ":
             print("Canceling...\n")
             time.sleep(.5)
-            break    
+            break
         else:
             print(f"'{selected_option}' is not valid option. try again")
         selected_option = input(menu_prompt).strip().lower()
@@ -212,7 +218,7 @@ def home():
 
 def banner():
     """
-    Prints the ascii art as a banner.
+    Prints the ascii art as a banner. From pyfiglet
     Code from https://www.devdungeon.com
     """
     ascii_banner = pyfiglet.figlet_format("Reading List")
