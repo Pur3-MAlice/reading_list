@@ -63,22 +63,31 @@ To understand the steps required in order to program the game, I created the bel
 ![Logic Flowchart](/documents/reading_list_flowchart.jpg) 
 
 # **Features**
- * Home page
- ![Logic Flowchart]()
- * About Page
- ![Logic Flowchart]()
- * TBR and READ page (idenitcal) - check or add
- ![Logic Flowchart]()
- * Check list
- ![Check list](/documents/tbr_list.jpg)
- * Book input
- ![Book input](/documents/add_book.jpg)
- * Duplicate catch
- ![Dupe catch](/documents/dupecheck.jpg)
- ![Dupe catch, no](/documents/dupecheck_no.jpg)
- ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
- * Sheet update with the number gen
- ![Sheet Update](/documents/update_sheet.jpg)
+ Home page
+    ![Home Page](/documents/home_screen.jpg)
+
+ Home page cancel
+    ![Home Page Cancel](/documents/home_screen_cancel.jpg)
+
+ About Page
+    ![About Page](/documents/about.jpg)
+
+ TBR and READ page (idenitcal) - check or add choice
+    ![TBR list](/documents/tbr_list.jpg)
+
+ Check list
+    ![Check list](/documents/terminal_table.jpg)
+
+ Book input
+    ![Book input](/documents/add_book.jpg)
+
+ Duplicate catch
+    ![Dupe catch](/documents/dupecheck.jpg)
+    ![Dupe catch, no](/documents/dupecheck_no.jpg)
+    ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
+    
+ Sheet update with the number gen
+    ![Sheet Update](/documents/update_sheet.jpg)
 
 ## **Home page:**
 From the Home page, the user has access to three things: -
