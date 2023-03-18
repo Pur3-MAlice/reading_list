@@ -190,7 +190,6 @@ def delete_row(title_delete):
         row_number = cell.row
         sheet.delete_rows(row_number)
         print(f"{title_delete} has been deleted.")
-        READ.append_row(row_number)
     else:
         print(f"{title_delete} not found in To Be Read list.")
 
