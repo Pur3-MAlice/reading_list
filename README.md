@@ -115,6 +115,13 @@ Dupelicate catch
  
   ![Sheet Update](/documents/update_sheet.jpg)
 
+## **Delete row based on title:**
+ Delete row
+ * The user can choose to delete a row on their TBR list by entering the title of the page
+ * This checks for the title being on the list and for user entry.
+
+  ![Delete Row](/documents/delete_row.jpg)  
+
 ## **Future-Enhancements**
 * To make this application better in the fututre these are the things I would include:
   1. The ability to remove books after checking the list of choice.
@@ -167,11 +174,26 @@ During the development process, I was manually testing in the following ways:-
 
 ### ***Bugs and Fixes:***
 Below is a list of bugs I found during the development process. A lot of the bugs and fixes where minor enough that they were caught and easily amended by just seeing the redlines in gitpod. But here are a few that stumped me enough to write them down.
-1. **Intended Outcome** - For the Nav button to show up in the top right of the screen and dropdown to show the other links to pages,
+1. **Intended Outcome** - Be able to go through the programs easily without too much looping.
     * ***Issue Found:*** 
-        * 
+        * Inable to get out of program. And looping occured without breaks.
     * ***Solution Used:*** 
-        * 
+        * Added one break option at the home page. User chosen "X". Also removed unnecessary.
+1. **Intended Outcome** - Only be able to add title and authors if there is a user input.
+    * ***Issue Found:*** 
+        * Could add book input without and charecters.
+    * ***Solution Used:*** 
+        * Use enforced mim input for title and author - min string.
+1. **Intended Outcome** - Don't check for entries of error book inputs, such as having no actual input
+    * ***Issue Found:*** 
+        * The app was checking for dupes despite their being no title.
+    * ***Solution Used:*** 
+        * Added in a while True loop
+1. **Intended Outcome** - The add dupe Y/N function to only accept Y and N. Other inputs throw error
+    * ***Issue Found:*** 
+        * Any other input other than Y/N broke the code and sent the user back to the start
+    * ***Solution Used:*** 
+        * Added in a while True loop and an else title_prompt = "".     
 
 ## **Post Development Testing**
 ### **Validators**
