@@ -64,27 +64,34 @@ def add_book(which_list):
 
     if len(title) < 1 or len(author) < 1:
         print("The Title and Author must contain atleast 1 character")
+
     else:
-        if title in tbr_title_list:
-            title_prompt = f'''{title} is already on your TBR list.
-            Press Y to add this Title anyway, Press N to Cancel\n'''
-            add_dupe = input(title_prompt).strip().upper()
-            if add_dupe == "Y":
+        while True:
+            if title in tbr_title_list:
+                title_prompt = f'''{title} is already on your TBR list.
+                Press Y to add this Title anyway, Press N to Cancel\n'''
+            elif title in read_title_list:
+                title_prompt = f'''{title} is already on your READ list.
+                Press Y to add this Title anyway, Press N to Cancel\n'''
+            else:
+                title_prompt = ""
+            if title_prompt:
+                add_dupe = input(title_prompt).strip().upper()
+                if add_dupe == "Y":
+                    print(f"Adding {title} by {author} on {current_date}\n")
+                    worksheet_update = SHEET.worksheet(f'{which_list}')
+                    worksheet_update.append_row(book_input)
+                    break
+                elif add_dupe == "N":
+                    print("Please choose another Title")
+                    break
+                else:
+                    print(f"'{add_dupe}' is not valid option. try again")
+            else:
                 print(f"Adding {title} by {author} on {current_date}\n")
                 worksheet_update = SHEET.worksheet(f'{which_list}')
                 worksheet_update.append_row(book_input)
-            elif add_dupe == "N":
-                print("Please choose another Title")
-            elif title in read_title_list:
-                print(f'''{title} is already on your Read list.
-                Press Y to add this Title anyway, Press N to Cancel''')
-            else:
-                print(f"'{add_dupe}' is not valid option. try again")
-                add_book(which_list)
-        else:
-            print(f"Adding {title} by {author} on {current_date}\n")
-            worksheet_update = SHEET.worksheet(f'{which_list}')
-            worksheet_update.append_row(book_input)
+                break
 
 
 def list_book(which_list):
@@ -177,7 +184,7 @@ Then you can interact with your TBR list''')
         print("You chose not to leave the about page")
         about()
     else:
-        print(f"'{about_leave}' is not valid option. try again")
+        print(f"'{about_leave}' is not valid option. Taking you home")
 
 
 def delete_row(title_delete):
