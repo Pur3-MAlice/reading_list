@@ -224,7 +224,7 @@ The project was deployed to [Heroku](https://www.heroku.com) using the below pro
 1. Confirm you want to connect to GitHub.
 1. Search for the repo and click the connect button.
 1. From the bottom of the deploy page select your preferred deployment type by follow one of the below steps:  
-   * Clicking “Enable Automatic Deploys" for automatic deployment when you push updates to Github. Which is what I chose to test after deployment.
+   * Clicking “Enable Automatic Deploys" for automatic deployment when you push updates to Github.
    * Select the correct branch for deployment from the drop-down menu and click the "Deploy Branch" button for manual deployment.
 
 ### **References**
