@@ -180,6 +180,32 @@ Then you can interact with your TBR list''')
         print(f"'{about_leave}' is not valid option. try again")
 
 
+def delete_row(title_delete):
+    """
+    delete row based on title
+    """
+    sheet = TBR
+    cell = sheet.find(title_delete)
+    if cell is not None:
+        row_number = cell.row
+        sheet.delete_rows(row_number)
+        print(f"{title_delete} has been deleted.")
+        READ.append_row(row_number)
+    else:
+        print(f"{title_delete} not found in To Be Read list.")
+
+
+def select_title():
+    """
+    Function to get the user to select the unique code
+    of the book input
+    """
+    title_prompt = "Please input the title:\n"
+    title_delete = input(title_prompt).strip().title()
+    print(title_delete)
+    delete_row(title_delete)
+
+
 def home():
     """
     Function for the initalisation home() helps user
@@ -190,6 +216,7 @@ def home():
     Press "T" to go to your TBR.
     Press "R" to go to your Read list.
     Press "B" to go to the About Section.
+    Press "D" to remove a row from your TBR.
     Or Press "X" to cancel.
     '''
     selected_option = input(menu_prompt).strip().lower()
@@ -210,6 +237,10 @@ def home():
             print("Going to About Section...\n")
             time.sleep(.5)
             about()
+        elif selected_option == "d":
+            print("Going to Delete Section...\n")
+            time.sleep(.5)
+            select_title()
         elif selected_option == "x":
             print("Canceling...\n")
             time.sleep(.5)
