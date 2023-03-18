@@ -5,6 +5,7 @@ import datetime
 import time
 import gspread
 from google.oauth2.service_account import Credentials
+import rich
 from rich.console import Console
 from rich.table import Table
 from rich import box
