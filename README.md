@@ -160,7 +160,7 @@ For this project to work, I required imported libraries: -
 ## **During Development Testing**
 ### ***Manual Testing:***
 During the development process, I was manually testing in the following ways:-
-* Manually testing each user input for errors via the console in gitpod.
+* Manually testing each user input for errors via the console in gitpod. Also later tested in Heroku.
     * Detailed below is the method in which I tested the app to make sure that it did what was intended. This test was focused on any unexpected outcomes. I have taken screen shots of the excel file used to do my manual testing. Please see the below:
     ![Home Page Test](/documents/home_test.jpg)
     ![About Page Test](/documents/about_page_test.jpg)

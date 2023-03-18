@@ -1,4 +1,6 @@
 import os
+import random
+import string
 import datetime
 import time
 import gspread
@@ -8,8 +10,6 @@ from rich.table import Table
 from rich import box
 import pyfiglet
 import pandas as pd
-import random
-import string
 
 
 # This code is taken from the code insitute love sandwiches code
