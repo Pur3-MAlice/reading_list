@@ -250,6 +250,8 @@ def home():
         elif selected_option == "x":
             print("Canceling...\n")
             time.sleep(.5)
+            cls()
+            print("Cancelled")
             break
         else:
             print(f"'{selected_option}' is not valid option. try again")

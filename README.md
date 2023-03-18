@@ -3,7 +3,7 @@
 ## **Overview**
 This program is a smart reading list that automatically updates a google spreadsheet with the user input from the app.
   
-[Click here to be taken to the final deployment of the project.]()
+[Click here to be taken to the final deployment of the project.](https://reading-list-alice.herokuapp.com/)
 
 ![Screenshot of the welcome screen](/documents/home_screen.jpg)
 
@@ -20,7 +20,7 @@ This program is a smart reading list that automatically updates a google spreads
 * [**Features**](#features)
   * [**Future-Enhancements**](#future-enhancements)
 * [**Data Model**](#data-model)
-* [**Testing Phase**](#testing-phase)
+* [**TDuring Development Testing**](#during-development-testing)
 * [**Libraries**](#libraries)
 * [**Deployment**](#deployment)
 * [**Credits**](#credits)
@@ -193,7 +193,12 @@ Below is a list of bugs I found during the development process. A lot of the bug
     * ***Issue Found:*** 
         * Any other input other than Y/N broke the code and sent the user back to the start
     * ***Solution Used:*** 
-        * Added in a while True loop and an else title_prompt = "".     
+        * Added in a while True loop and an else title_prompt = "".  
+1. **Intended Outcome** - Deployement to Heroku would run smoothly.
+    * ***Issue Found:*** 
+        * Heroku got caught on my dependancy 'Rich'. Which is used to create the check tables. Program wouldn't Run
+    * ***Solution Used:*** 
+        * Manually added Rich to requirements.txt and then re-pushed the deployment.            
 
 ## **Post Development Testing**
 ### **Validators**
