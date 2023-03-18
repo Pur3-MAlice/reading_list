@@ -58,7 +58,7 @@ def add_book(which_list):
     book_input.append(str(random_num) + str(random_letter))
 
     df_tbr = pd.DataFrame(tbr_data)  # dataframe from pandas
-    df_read = pd.DataFrame(read_data) 
+    df_read = pd.DataFrame(read_data)
     tbr_title_list = df_tbr[df_tbr.columns[0]].values.tolist()
     read_title_list = df_read[df_read.columns[0]].values.tolist()
 

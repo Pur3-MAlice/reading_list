@@ -48,8 +48,8 @@ The site aims to:
   
 ## ***How Will This Be Achieved:***
 To achieve the above, the site will:
-1. validation
-1. User the random int and random letter to creat uniwue code
+1. User validation via error messages.
+1. User the random int and random letter to creat unique code.
 1. use .upper and .lower to make sure any user prompts where error proof and either case could be used when entering letters for app navigation.
 1. Using the break feature at the 'home page' to stop the program.
 
@@ -108,19 +108,22 @@ From the Home page, the user has access to three things: -
   1. The ability to add in mutliple books at once.
   1. The option to add in list of books from sources such a bestseller lists.
   1. Add due date for TBR entries to ensure there's a timeline for the user to read books. This could be used for students.
-  1. Be able to delete Rows based on Unique ID, title or author.
+  1. Be able to delete rows based on Unique ID or author not just title.
+  1. Be able to delete mulitple rows
   1. Be able to move rows from one sheet to the other.
 
 # **Data Model**
 ## **Logic Flow:**
-The home function is called at the end of the run.py file, just after the banner call. The welcome screen is now loaded and has ascii art and the user selection home page. The user can read the about, the rules, got to their TBR, or go to their READ list. They also have the option to cancel the program and leave. Entering the approriate letter will take them to that area.
+The home function is called at the end of the run.py file, just after the banner call. The welcome screen is now loaded and has ascii art and the user selection home page. The user can read the about, the delete from TBR, go to their TBR, or go to their READ list. They also have the option to cancel the program and leave. Entering the approriate letter will take them to that area. Spaces and letters not shown to guide the user throw user errors.
 
 Once the user enters "X" to go to the list, the set user's list is passed to each function moving forward to ensure that the correct sheet is being edited by the user. As part of the error handling for the input, the user cannot enter any other letters or numbers without being passed an error message.
+
+This app works with Google Sheets API and works to add and remove rows from the users TBR and READ lists, which are part of the Google worksheet.
 
 # **Libraries**
 For this project to work, I required imported libraries: -
 ### ***os:***
-  * Clear Screen. This was used to keep the terminal clean for a better user experince.
+  * Clear Screen. This was used to keep the terminal clean for a better user experince, without a long terminal the user can focus on what needs to be interacted with at that moment.
 ### ***rich:***
    * Rich is a Python library for rich text and beautiful formatting in the terminal. I used this primarily for printing tables for a better UX. This was used with console, table and box.
 ### ***datetime:***
@@ -138,8 +141,14 @@ For this project to work, I required imported libraries: -
 ### ***Manual Testing:***
 During the development process, I was manually testing in the following ways:-
 * Manually testing each user input for errors via the console in gitpod.
-    * Detailed below is the method in which I tested the app to make sure that it did what was intended. This test was focused on any unxpected outcomes.
-      1.
+    * Detailed below is the method in which I tested the app to make sure that it did what was intended. This test was focused on any unxpected outcomes. I have taken screen shots of the excel file used to do my manual testing. Please see the below:
+    ![Home Page Test](/documents/home_test.jpg)
+    ![About Page Test](/documents/about_page_test.jpg)
+    ![Add Page READ Test](/documents/add_page_read_test.jpg)
+    ![Add Page TBR Test](/documents/add_page_tbr_test.jpg)
+    ![READ choose Test](/documents/read_choose_page_test.jpg)
+    ![TBR Choose Test](/documents/tbr_choose_page_test.jpg)  
+    ![Title input Test](/documents/title_input_test.jpg)           
         
 * Asked a Data Scientist friend to review the app by following the above procedure often throughout the development of the game. They did not offer any help on the coding nor did they provide feedback other than "XXX" is doesn't work as expected. They did however make a good soundboard for me to talk at while talking through difficult code issues.
 
@@ -153,11 +162,11 @@ Below is a list of bugs I found during the development process. A lot of the bug
 
 ## **Post Development Testing**
 ### **Validators**
-#### ***PEP8*** -   
+#### ***PEP8*** - [PEP8](https://pep8ci.herokuapp.com/)
 * ***Issue Found:***
-    * 
+    * Trailing whitespace on line 61
 * ***Solution Used:***
-    * 
+    * Removed trailing whitespace on line 61
 
 # **Deployment**
 ## ***Final Deployment to Heroku:***  
