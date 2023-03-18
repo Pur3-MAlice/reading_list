@@ -60,47 +60,60 @@ To understand the steps required in order to program the game, I created the bel
 ![Logic Flowchart](/documents/reading_list_flowchart.jpg) 
 
 # **Features**
- About Page
-
-  ![About Page](/documents/about.jpg)
-
- TBR and READ page (idenitcal) - check or add choice
-
-  ![TBR list](/documents/tbr_list.jpg)
-
- Check list
-
-  ![Check list](/documents/terminal_table.jpg)
-
- Book input
-
-  ![Book input](/documents/add_book.jpg)
-
- Duplicate catch
-
-  ![Dupe catch](/documents/dupecheck.jpg)
-
-Dupelicate catch then choose not to add
-
-  ![Dupe catch, no](/documents/dupecheck_no.jpg)
-
-Dupelicate catch then add anyway
-
-  ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
-
- Sheet update with the number gen
- 
-  ![Sheet Update](/documents/update_sheet.jpg)
-
 ## **Home page:**
 From the Home page, the user has access to three things: -
-* About Page / How to use
+* About Page / How to use.
 * Access Read List.
 * Access TBR List.  
-* Cancel the program
+* Cancel the program.
 
 ![Home Page](/documents/home_screen.jpg)
 ![Home Page Cancel](/documents/home_screen_cancel.jpg)
+
+## **About page:**
+The About page: -
+* Tells the user what the app is for and how to use. Also gives the user a brief intro on how to nav the app.
+
+![About Page](/documents/about.jpg)
+
+## **TBR and READ list page:**
+The TBR and READ list page: -
+* TBR and READ page (idenitcal) - check the list, add an input, go home.
+* Base for letting user edit and adapt their sheet.
+
+![TBR list](/documents/tbr_list.jpg)
+
+## **Check list page:**
+ Check list
+ * The check list page lets the user see in the terminal all the data on that particular list (TBR/READ)
+ * It uses the Rich add on for python to make it look nicer.
+
+  ![Check list](/documents/terminal_table.jpg)
+
+## **Book input page:**
+ Book input
+ * Lets the user input the title and author of the book they are adding to their list.
+ * Automatically makes the intputs Title Case with .title().
+
+  ![Book input](/documents/add_book.jpg)
+
+## **Dupelicate catch page:**
+Dupelicate catch
+* Lets the user know if they already have that title on their list, but the user may want to add it again or the title may be used by another author so the user is given the choice to add it or not.
+* Catch dupe, then don't add the entry, but also add the entry.
+
+  ![Dupe catch](/documents/dupecheck.jpg)
+
+  ![Dupe catch, no](/documents/dupecheck_no.jpg)
+
+  ![Dupe catch, yes](/documents/dupecheck_yes.jpg)
+
+## **Sheet update:**
+ Sheet update with the number gen
+ * This is the image of the updated sheet with the addition of the unique number gen which is a feature to help deceminate each input.
+ * The unique number is composed of (1, 100) and (A-Z/a-z). EX. 85D or 32f or 54P
+ 
+  ![Sheet Update](/documents/update_sheet.jpg)
 
 ## **Future-Enhancements**
 * To make this application better in the fututre these are the things I would include:
